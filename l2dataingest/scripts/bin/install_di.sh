@@ -4,8 +4,6 @@ F1SIM_HOME=$(dirname $0 | xargs -I {} realpath {} | rev | cut -d '/' -f 2- | rev
 
 cd $F1SIM_HOME
 
-$F1SIM_HOME/bin/download_instantclient.sh -d $F1SIM_HOME -i $F1SIM_HOME -f
-ORACLE_HOME=`ls .  -tp | grep instantclient_ | head -1 | xargs -I {} realpath {}`
 $F1SIM_HOME/bin/download_rabbitmq.sh
 $F1SIM_HOME/bin/setup_env.sh -d ${ORACLE_HOME} -f
 $F1SIM_HOME/bin/setup_service.sh

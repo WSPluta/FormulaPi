@@ -34,6 +34,8 @@ oracledb:
     dbusername: "<dbusername>"
     dbpassword: "<dbpassword>"
     dburl: "<dburl_dns>"
+    dbwalletdir: "<dbwalletdir>"
+    dbwalletpassword: "<dbwalletpassword>"
     poolsize: 4
     lapdata_info: "BEGIN insert INTO \"F1SIM-LAPDATA\" (ID, \"DATA\") VALUES (SYS_GUID(), :body); END;"
     sessiondata_info: "BEGIN insert INTO \"F1SIM-SESSION\" (ID, CREATED_ON, VERSION, DATA) VALUES (SYS_GUID(), SYSTIMESTAMP, '0.1', :body); END;"
