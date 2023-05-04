@@ -1,4 +1,4 @@
-import cx_Oracle
+import oracledb
 import sys
 import os
 import logging
@@ -9,19 +9,20 @@ home = str(Path.home())
 
 class OracleDatabaseConnection(PacketWriter):
     def __init__(self, parameters):
-        if sys.platform == 'win32':
-            cx_Oracle.init_oracle_client(lib_dir=os.getenv('ORACLE_HOME'))
         self.dbusername = parameters['dbusername']
         self.dbpassword = parameters['dbpassword']
         self.poolsize = parameters['poolsize']
         self.dburl = parameters['dburl']
-        logging.debug(os.getenv("TNS_ADMIN"))
+        self.dbwalletdir = parameters['dbwalletdir']
+        self.dbwalletpassword = parameters['dbwalletpassword']
         logging.debug(self.dburl)
         logging.debug(self.dbusername)
         logging.debug(self.dbpassword)
         logging.debug(self.poolsize)
+        logging.debug(self.dbwalletdir)
+        logging.debug(self.dbwalletpassword)
         logging.info("Sending to " + self.dbusername+"@"+self.dburl);
-        self.pool = cx_Oracle.SessionPool(self.dbusername, self.dbpassword, self.dburl, min=self.poolsize, max=self.poolsize, increment=1, threaded=True,getmode=cx_Oracle.SPOOL_ATTRVAL_WAIT)
+        self.pool = oracledb.create_pool(user=self.dbusername, password=self.dbpassword, dsn=self.dburl, min=self.poolsize, max=self.poolsize, increment=1, threaded=True, config_dir=self.dbwalletdir, wallet_location=self.dbwalletdir, wallet_password=self.dbwalletpassword)
         self.pool.ping_interval = 120
         self.pool.timeout = 600
         logging.info('Connection successful.')
@@ -37,7 +38,7 @@ class OracleDatabaseConnection(PacketWriter):
             try:
                 connection = self.pool.acquire()
                 connection.autocommit = True
-                cursor = cx_Oracle.Cursor(connection)
+                cursor = oracledb.Cursor(connection)
                 cursor.execute(location,parameters);
                 return 1
             except Exception as ex:

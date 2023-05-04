@@ -60,7 +60,8 @@ For latest packet definition please visit [here](https://racinggames.gg/f1/f1-22
     ![rabbit](images/rabbit.gif) 
    5.  ***dbusername*** - from your stack
    6.  ***dbpassword*** - from your stack 
-   7.  ***dburl*** in Cloud Shell Run 
+   7.  ***dbwalletpassword*** - same as ***dbpassword***
+   8.  ***dburl*** in Cloud Shell Run 
       ```
       <copy>cat Wallet/tnsnames.ora</copy>
       ```
