@@ -9,8 +9,6 @@ home = str(Path.home())
 
 class OracleDatabaseConnection(PacketWriter):
     def __init__(self, parameters):
-        if sys.platform == 'win32':
-            cx_Oracle.init_oracle_client(lib_dir=os.getenv('ORACLE_HOME'))
         self.dbusername = parameters['dbusername']
         self.dbpassword = parameters['dbpassword']
         self.poolsize = parameters['poolsize']
