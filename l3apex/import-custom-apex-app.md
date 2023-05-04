@@ -104,7 +104,7 @@ The next section formats the Fields for display. Laptimes are in Milliseconds an
 3. 	Click Styles
 ![Styles](images/styles.png)
 4. 	Click Add Style
-![Add Style](images/addStyle.png)
+![Add Style](images/addstyle.png)
 5.  Enter following details:
    - Name: `eSports`
    - Is Current. Switch ON
@@ -209,7 +209,7 @@ To format the Leaderboard let's include CSS inside our SQL. We can use condition
    
 We don’t need all the columns in our Leaderboard, so go ahead and Hide (or delete) the following:  
     - Hide LT and Team  
-    - Hide "S1_COL", "S2_COL", "S3_COL"  
+    - Hide `S1_COL,` `S2_COL`, `S3_COL`  
     ![Hiding Column](images/hide.png)  
 You can re-run your Leaderboard App to see what progress you made! ***Don’t forget to set your chosen track***  
     ![Progress](images/progress.png)  
