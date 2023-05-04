@@ -29,14 +29,6 @@ done
 
 . $F1SIM_HOME/f1env.sh
 
-if [ "$ORACLE_HOME" = "" ]
-then
-    echo "ORACLE_HOME not set."
-    echo "Run source ./f1env.sh"
-    echo "Or setup environment bin/setup_env.sh"
-    exit
-fi
-
 if [ -z "$WALLET_ZIPFILE" ] 
 then
     read -p "Wallet (ZIP) File: " WALLET_ZIPFILE
@@ -57,44 +49,3 @@ fi
 unzip -d $WALLET_DIRNAME ${UNZIP_ARGS} $WALLET_ZIPFILE
 
 echo "Wallet unzipped into ${WALLET_DIR}"
-
-cd $ORACLE_HOME/network/admin
-
-if [ -L cwallet.sso ]
-then
-    echo "Wallet found."
-    if [ "$FORCE" != "true" ]
-    then
-        while true
-        do
-            read -p "Continue (Y/N): " next
-            case $next in
-                [yY] )
-                    break;;
-                [nN] )
-                    exit;;
-                * ) echo invalid response;;
-            esac
-        done
-    fi
-fi
-
-if [ -L cwallet.sso ]
-then
-    rm cwallet.sso
-fi
-ln -s $WALLET_DIR/cwallet.sso
-if [ -L sqlnet.ora ]
-then
-    rm sqlnet.ora
-fi
-ln -s $WALLET_DIR/sqlnet.ora
-if [ -L tnsnames.ora ]
-then
-    rm tnsnames.ora
-fi
-ln -s $WALLET_DIR/tnsnames.ora
-
-echo "Wallet files linked to ${ORACLE_HOME}/network/admin"
-echo "Current Status:"
-ls -al ${ORACLE_HOME}/network/admin

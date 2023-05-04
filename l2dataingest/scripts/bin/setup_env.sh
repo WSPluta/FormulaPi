@@ -6,7 +6,7 @@ cd $F1SIM_HOME
 print_usage()
 {
     echo ""
-    echo " setup_env.sh [-d ORACLE_HOME] [-f] [-h]"
+    echo " setup_env.sh [-f] [-h]"
     echo ""
     echo " -d: where the Instant Client files are installed (referring to the instantclient_??_?? directory)"
     echo " -f: force"
@@ -14,10 +14,9 @@ print_usage()
     echo ""
 }
 
-while getopts 'd:fh' flag; do
+while getopts 'fh' flag; do
   case "${flag}" in
     f) FORCE='true' ;;
-    d) ORACLE_HOME="${OPTARG}" ;;
     *) print_usage
        exit 1 ;;
   esac
@@ -44,22 +43,10 @@ then
     mv f1env.sh f1env.sh.${current_time}
 fi
 
-if [ "${ORACLE_HOME}" = "" ]
-then
-    read -p "Instant Client Directory: " TMP_ORACLEHOME
-    ORACLE_HOME=`realpath $TMP_ORACLEHOME`
-else
-    ORACLE_HOME=`realpath $ORACLE_HOME`
-fi
-
-echo "Configuring Instant Client as $ORACLE_HOME"
-ORACLE_HOME_ESC=$(echo $ORACLE_HOME | sed 's_/_\\/_g')
 F1SIM_HOME_ESC=$(echo $F1SIM_HOME | sed 's_/_\\/_g')
 
 cp f1env.sh.template f1env.sh
-sed -i "s/<INSTANT CLIENT HOME>/${ORACLE_HOME_ESC}/g" f1env.sh
 sed -i "s/<F1SIM_HOME>/${F1SIM_HOME_ESC}/g" f1env.sh
-sed -i "s/export TNS_ADMIN/\# export TNS_ADMIN/g" f1env.sh
 
 echo "f1env.sh is configured."
 echo "Set environment: source ./f1env.sh"
