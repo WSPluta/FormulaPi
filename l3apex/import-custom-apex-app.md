@@ -28,32 +28,32 @@ An APEX Workspace is a logical domain where you define APEX applications. Each w
 1. Download "Formula-Pi" APEX app [files](files/apexapps.zip)
 
 2. Click on _hamburger menu_ and select _APEX Workspaces_  
-   ![Click on Hamburger Menu](images/4backToHome.png)  
+   ![Click on Hamburger Menu](images/4backtohome.png)  
         (optional) You can navigate to _APEX Workspaces_ from "DB Actions" homepage  
-        ![Click on APEX from DB actions](images/5aAPEX.png " ")  
+        ![Click on APEX from DB actions](images/5aapex.png " ")  
         (optional) You can navigate to _APEX Workspaces_ from "Oracle Cloud Console"      
-        ![Click on APEX from Oracle Cloud Console](images/5bAPEX.png " ")  
+        ![Click on APEX from Oracle Cloud Console](images/5bapex.png " ")  
 3. Log in to your Oracle APEX instance.  
-   ![APEX workspace login](images/6APEXWorkspaceLogin.png " ")
+   ![APEX workspace login](images/6apexworkspacelogin.png " ")
 4. Click _App Builder_ > _Import_  
-![import to AppBuilder](images/4importAppBuilder.png)
+![import to AppBuilder](images/4importappbuilder.png)
 1.  Drag and drop f199.sql into the dotted box
-![Import Drag](images/4appImport.png)
+![Import Drag](images/4appimport.png)
 1.  Click _Next_ to import the file
- ![Import Step](images/importStep.png)  
+ ![Import Step](images/importstep.png)  
 2.  Click _Next_ for install options
 3.  Leave all others as default
 4.  Click _Install Application_
-   ![Import Install](images/4importInstall.png)
+   ![Import Install](images/4importinstall.png)
 
 ### Access your APEX app
 8.  Click _Run_ Application
    ![Run Command](images/run.png)
 9.  Sign in as APEX user “F1_HOL”  
-![Import and install](images/5logIn.png)
+![Import and install](images/5login.png)
 1.  In the “Track” form field enter the name of the track that you have been racing on. This is the name of the track that the Game sets. Press Enter
 2.  A simple Leaderboard report is created  
-![importInstall](images/5dashboardVanila.png)
+![importInstall](images/5dashboardvanila.png)
 1.  You can view the SQL used to create the Leaderboard in the footer region, or by editing the page
 2.  Explanation of the SQL:
     1.  Extracts Laptime data based on the track you selected in the form. The data is then ranked and formatted for display.
@@ -71,27 +71,27 @@ The next section formats the Fields for display. Laptimes are in Milliseconds an
 ### Duplicate core App
 1. 	Click to Edit the Application from the App Builder page
 1. 	Click _Copy this Application_
-![Copy application](images/copyThisApplication.png)
+![Copy application](images/copythisapplication.png)
 2. 	Add Name : ***Livelaps HOL+CSS***
 3. 	Click _Next_  
-![Click next to copy application](images/copyApp.png)
+![Click next to copy application](images/copyapp.png)
 4. 	Click _Copy Application_  
-![Final click on copy application](images/copyApplication.png)
+![Final click on copy application](images/copyapplication.png)
 1. 	New Application is loaded into the App Builder Edit Application Page
 ### Upload CSS files
 1. 	Click _Shared Components_
-![Shared Components](images/sharedComponent.png)
+![Shared Components](images/sharedcomponent.png)
 1. 	Click _Static Application Files_ under “Files and Reports”
-![staticApplication](images/staticApplicationFiles.png)
+![staticApplication](images/staticapplicationfiles.png)
 1. Click _Create File_
 2. 	Drag or Choose “apex-hol-min.css”
-![staticApplication](images/apexHOLMinCSS.png)
+![staticApplication](images/apexholmincss.png)
 1. 	You can review the CSS here, but for now click _Save Changes_ and back to _Static Application Files_
-![staticApplication](images/apexHOLMinCSSCreated.png)
+![staticApplication](images/apexholmincsscreated.png)
 1. 	Repeat same process for “Livelaps HOL.css”
-![staticApplication](images/liveLapsHOLCreated.png)
+![staticApplication](images/livelapsholcreated.png)
 1. Great Work! Note that APEX created ***MIN*** version of the Livelaps HOL css file.
-![staticApplicationFileView](images/staticApplicationFilesView.png)
+![staticApplicationFileView](images/staticapplicationfilesview.png)
 1. Please copy or make note of following two URL's - we will need them later.
    - ***apex-hol-min.css*** file. URL =`#APP_IMAGES#apex-font-min.css`
    - ***LiveLaps HOL.css*** file. URL = `#APP_FILES#Livelaps HOL.css`
@@ -100,7 +100,7 @@ The next section formats the Fields for display. Laptimes are in Milliseconds an
 1. 	From Shared Components Screen click _Themes_ under “User Interface”
 ![Themes](images/themes.png)
 2. 	Click _Universal Theme – 42*_ to edit the Theme
-![Universal theme](images/universalTheme.png)
+![Universal theme](images/universaltheme.png)
 3. 	Click Styles
 ![Styles](images/styles.png)
 4. 	Click Add Style
@@ -110,31 +110,31 @@ The next section formats the Fields for display. Laptimes are in Milliseconds an
    - Is Current. Switch ON
    - Add CSS `#APP_IMAGES#apex-font-min.css` to File URLs
 1. 	Click Create
-   ![Style name and settings](images/styleName.png)
+   ![Style name and settings](images/stylename.png)
 2.  Click Apply Changes
-   ![Apply Changes](images/applyChanges.png)
+   ![Apply Changes](images/applychanges.png)
 
 ## Task 4: Changing App formatting to our Custom CSS
 1. 	Click _Shared Components_  
-    ![Shared Components Icon](images/sharedComponentsIcon.png)
+    ![Shared Components Icon](images/sharedcomponentsicon.png)
 2. 	Click _User Interface Attributes_ under “User Interface”
-    ![User Interface Attributes](images/userInterfaceAttributes.png)
+    ![User Interface Attributes](images/userinterfaceattributes.png)
 3. 	Scroll to CSS and enter the Reference (URL) into the File URLs box: `#APP_FILES#Livelaps HOL.css`
-    ![Reference URL](images/referenceURL.png)
+    ![Reference URL](images/referenceurl.png)
 4. 	Click _Apply Changes_
 1. Click _Run_  to see how our dashboard looks now
-![Reference URL](images/formattedLeaderboard.png)
+![Reference URL](images/formattedleaderboard.png)
 
 ## Task 5: Styling our Leaderboard App
 1. From the Edit Application in the App Builder page
 2. 	Select Page _1 – Home_ to open in Edit Mode
-![Reference URL](images/appHome1-Home.png)
+![Reference URL](images/apphome1-home.png)
 3. 	Set the Page Template under “Appearance” to be Minimal (Ultra light) from the drop down. This selects our minimal custom page template
 ![Minimal Appearance](images/minimal.png)
 Next, set the Page style to be our eSports theme (from inside the Livelaps HOL css file)
 1. 	In the CSS Classes under “Appearance” enter eSports
 2. 	Click Save
-![CSS Classes](images/cssClasses.png)
+![CSS Classes](images/cssclasses.png)
     Some tweaks to tidy up the Page.
     We don’t need a Breadcrumb bar, so this can be deleted
     1. 	Select Livelaps HOL under Breadcrumb Bar and delete it (right click > delete, or press delete key)
@@ -184,9 +184,9 @@ To format the Leaderboard let's include CSS inside our SQL. We can use condition
         FETCH FIRST 20 ROWS ONLY;</copy>
         ```
 1. Click on _Leaderboard_ and paste above SQL statement into _Source_ > _SQL Query_ (Right hand side of your screen)
-![Updated SQL](images/sqlUpdate.png)  
+![Updated SQL](images/sqlupdate.png)  
 1. 	Expand Leaderboard Region _Columns_  
-![Leaderboard Objects](images/leaderboardObjects.png)  
+![Leaderboard Objects](images/leaderboardobjects.png)  
 1. 	Click _DRIVER_ column
 2. 	Scroll to Escape Special Characters under “Security” and switch OFF  
 ![Security](images/security.png)  
@@ -204,7 +204,7 @@ To format the Leaderboard let's include CSS inside our SQL. We can use condition
         ```
         <copy><span class="laptime #S3_COL#">#S3#</span></copy>
         ```  
-    ![Column Formatting](images/columnFormatting.png)
+    ![Column Formatting](images/columnformatting.png)
 1. Click _Save_
    
 We don’t need all the columns in our Leaderboard, so go ahead and Hide (or delete) the following:  
@@ -219,17 +219,17 @@ You can re-run your Leaderboard App to see what progress you made! ***Don’t fo
 ## Task 6: Tidy up - Let's get rid of the Gridline. 
 1. From the Edit Application in the App Builder page
 2. 	Select Page _1 – Home_ to open in Edit Mode
-![Reference URL](images/appHome1-Home.png)
+![Reference URL](images/apphome1-home.png)
 2. 	Click the Leaderboard Region
 3. 	Scroll down to “Appearance” section and click on _Template Options_ button  
 ![Reference Appearance Tab](images/appearance.png)
 4. 	Click Style Drop Down and choose “Remove Borders”. Click _OK_
-![Remove Boarders](images/removeBoarders.png)
+![Remove Boarders](images/removeboarders.png)
 5. 	With Leaderboard Region still selected, click Attributes Tab
-![Reference Appearance Tab](images/appearanceTab.png)
+![Reference Appearance Tab](images/appearancetab.png)
 1. 	Click _Template Options_ button under “Appearance” to open the options popup
 2. 	Set Row Highlighting to _Disable_
-![Reference Highlight](images/rowHighlight.png)
+![Reference Highlight](images/rowhighlight.png)
 1. 	Set Report Border to _No Borders_
 2.  Click _OK_
 3.  Click _Save_
